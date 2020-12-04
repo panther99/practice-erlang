@@ -29,6 +29,8 @@ calc(List) ->
         error -> {err, "Invalid input"}
     end.
 
+% We're wrapping recursive calc function so we can safely
+% use it inside try ... catch block
 safe_calc(List) -> calc(List, []).
 
 calc([], [Num]) when is_integer(Num) ->
